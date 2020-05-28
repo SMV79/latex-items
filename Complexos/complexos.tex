@@ -1,0 +1,80 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[hmargin={2cm},vmargin={2cm}]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{exsheets}
+
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+
+\begin{document}
+
+\title{Números complexos}
+\date{28 de Maio de 2020}
+\author{Carlos Frias}
+\maketitle
+
+\begin{enumerate}
+	\item Em \( \mathbb{C}\), conjunto dos números complexos, considere \(z_1=e^{\alpha i}\) e \(z_2=2i\), com \(\alpha \in \left]0, \frac{\pi}{4}\right[\).
+	
+	Na figura estão representadas, no plano complexo, as imagens geométricas de \(z_1\) e \(z_2\), bem como as imagens geométricas de outros quatro números complexos: \(w_1\), \(w_2\), \(w_3\) e \(w_4\).
+
+\begin{center}
+	\def\myAngle{25}
+	\def\xmin{-1.2}
+	\def\xmax{1.2}
+	\def\ymin{-0.5}
+	\def\ymax{3.2}
+	\begin{tikzpicture}[scale=1.5]
+		\tkzInit[xmin={\xmin}, xmax={\xmax}, ymin={\ymin}, ymax={\ymax}]
+		\tkzDefPoint({\xmax}, 0){X2}
+		\tkzDefPoint({\xmin}, 0){X1}
+		\tkzDefPoint(0, {\ymax}){Y2}
+		\tkzDefPoint(0,\ymin){Y1}
+		\tkzDefPoint(0,0){O}
+		\tkzDefPoint({\myAngle}:1){Z1}
+		\tkzDefPoint(0, 2){Z2}
+		
+		\tkzDefPoint({-2*\myAngle}:1){A}
+		\tkzDefPointBy[translation=from O to Z2](A)\tkzGetPoint{B}
+		
+		\tkzDefPointBy[symmetry=center O](A)\tkzGetPoint{C}
+		
+		\tkzDefPointBy[translation=from O to Z2](C)\tkzGetPoint{D}
+		
+		\tkzDefPoint({2*\myAngle}:1){F}
+		\tkzDefPointBy[symmetry=center O](F)\tkzGetPoint{E}
+		
+		\tkzDefPointBy[translation=from O to Z2](E)\tkzGetPoint{F}
+		
+		\tkzDrawSegments[thick, ->, >=stealth](X1,X2 Y1,Y2)
+		
+		\tkzDrawSegments[thick, ->, >=stealth, blue](O,Z1 O,Z2)
+		\tkzDrawPoints(Z1, Z2,  B, C, D, F)
+		
+		\tkzLabelPoints[below left](O)
+		\tkzLabelPoint[right](Z1){\(z_1\)}
+		\tkzLabelPoint[right](Z2){\(z_2\)}
+		\tkzLabelPoint[right](B){\(w_1\)}
+		\tkzLabelPoint[left](C){\(w_2\)}
+		\tkzLabelPoint[left](D){\(w_3\)}
+		\tkzLabelPoint[left](F){\(w_4\)}
+		
+		\tkzLabelPoint(X2){\(\operatorname{Re}(z)\)}
+		\tkzLabelPoint(Y2){\(\operatorname{Im}(z)\)}
+	\end{tikzpicture}
+\end{center}
+
+	Atendendo aos dados da figura, qual dos seguintes poder ser o complexo \(w=z_2-\overline{z_1}^2\) ?		 
+
+	\begin{tasks}(4)
+		\task \(w_1\)
+		\task \(w_2\)
+		\task \(w_3\)
+		\task \(w_4\)
+	\end{tasks}
+
+\end{enumerate}
+
+\end{document}
